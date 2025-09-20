@@ -21,7 +21,7 @@ public class OrderEventConsumer {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    @KafkaListener(topics = "order-create", groupId = "cms-adapter")
+    @KafkaListener(topics = "order-create-events", groupId = "cms-adapter")
     public void consume(String message) throws Exception {
         Map<String, Object> orderEvent = objectMapper.readValue(message, Map.class);
         System.out.println("Adapter received order event: " + orderEvent);
